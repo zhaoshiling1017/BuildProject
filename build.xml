@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <project name="BuildProject" default="default"> 
+ 	<property name="srcDir" value="src"></property>
+ 	<property name="distDir" value="dist/javadoc"></property>
+    <target name="default" depends="depends" description="description"> 
+        <javac srcdir="src" destdir="bin" includes="**/*.java"></javac> 
+    	 <jar basedir="bin" destfile="dist/ant_project.jar"></jar> 
+    	<!--
+    	 <war destfile="dist/ant_project.war" webxml="WEB-INF/web.xml"> 
+    		 <classes dir="bin"></classes> 
+    	 </war>
+    	 --> 
+    </target> 
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - --> 
+    <target name="depends"> 
+    	
+    </target> 
+ 	<target name="javadoc"> 
+ 	       <!-- destdir 是 javadoc 生成的目录位置 --> 
+ 	      <javadoc destdir="${distDir}" encoding="GBK" docencoding="GBK"> 
+ 	          <!-- dir 是你的源代码位置，记住是 java 文件的位置而不是 class 文件的位置，
+ 	                       第一次用这个命令容易忽略这点 切记 --> 
+ 	                <packageset dir="${srcDir}"> 
+ 	           <!-- exclude 是去掉那些不想生成 javadoc 的类文件 -->
+ 	                	<!--
+ 	                             <exclude name="${excludeClasses}" /> 
+ 	                     -->
+ 	                 </packageset> 
+ 	        </javadoc> 
+ 	 </target>
+ </project>
